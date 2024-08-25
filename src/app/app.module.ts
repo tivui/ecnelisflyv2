@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { CoreModule } from './modules/core/core.module';
 import { AppComponent } from './modules/core/components/app/app.component';
 import { AppRoutingModule } from './modules/core/components/app/app-routing.module';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 @NgModule({
   imports: [
@@ -10,7 +11,9 @@ import { AppRoutingModule } from './modules/core/components/app/app-routing.modu
     CoreModule,
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
