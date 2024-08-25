@@ -1,1 +1,24 @@
-<p>login works!</p>
+<div class="login-container">
+  <h2>Login</h2>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" placeholder="Enter your email" />
+      <mat-error *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid">
+        <div *ngIf="loginForm.get('email')?.errors?.['required']">Email is required.</div>
+        <div *ngIf="loginForm.get('email')?.errors?.['email']">Invalid email format.</div>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <input matInput formControlName="password" type="password" placeholder="Enter your password" />
+      <mat-error *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid">
+        <div *ngIf="loginForm.get('password')?.errors?.['required']">Password is required.</div>
+        <div *ngIf="loginForm.get('password')?.errors?.['minlength']">Password must be at least 6 characters long.</div>
+      </mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">Login</button>
+  </form>
+</div>

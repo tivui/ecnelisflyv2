@@ -1,0 +1,22 @@
+.login-container {
+  max-width: 400px;
+  margin: 0 auto; /* Center the container horizontally */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background: #fff;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* Space between form fields and button */
+}
+
+mat-form-field {
+  width: 100%; /* Make form fields full width */
+}
+
+button {
+  align-self: flex-end; /* Align button to the right */
+}

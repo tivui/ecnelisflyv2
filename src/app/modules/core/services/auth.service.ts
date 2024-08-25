@@ -14,12 +14,12 @@ export class AuthService {
   }
 
   // Register
-  private signup(email: string, password: string) {
+  public signup(email: string, password: string) {
     return this.supabaseClient.auth.signUp({ email, password });
   }
 
   // Login
-  private signInWithPassord(email: string, password: string) {
+  public signInWithPassord(email: string, password: string) {
     return this.supabaseClient.auth.signInWithPassword({ email, password });
   }
 
