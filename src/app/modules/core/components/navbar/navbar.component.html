@@ -1,9 +1,40 @@
-<p>navbar works!</p>
+<mat-toolbar color="primary">
+  <span>Bookings</span>
 
-<section>
-  <div class="example-label">Stroked</div>
-  <div class="example-button-row">
-    <button mat-stroked-button routerLink="auth/login">Login</button>
-    <button mat-stroked-button routerLink="auth/sign-up">Sign up</button>
-  </div>
-</section>
+  <span class="spacer"></span>
+
+  <span class="auth-buttons">
+    <ng-container *ngIf="!isLoggedIn; else loggedInTemplate">
+      <button mat-button [matMenuTriggerFor]="authMenu" color="accent">
+        Login / Sign up
+      </button>
+      <mat-menu #authMenu="matMenu">
+        <button mat-menu-item routerLink="/auth/login">
+          <mat-icon>login</mat-icon>
+          <span>Login</span>
+        </button>
+        <button mat-menu-item routerLink="/auth/sign-up">
+          <mat-icon>person_add</mat-icon>
+          <span>Sign up</span>
+        </button>
+      </mat-menu>
+    </ng-container>
+
+    <ng-template #loggedInTemplate>
+      <span class="logout">
+        <span class="bell-icon">
+          <mat-icon>notifications_none</mat-icon>
+        </span>
+        <button mat-mini-fab matTooltip="John Doe" [matMenuTriggerFor]="menu" color="accent">
+          <mat-icon>perm_identity</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="signOut()">
+            <mat-icon>power_settings_new</mat-icon>
+            <span>Logout</span>
+          </button>
+        </mat-menu>
+      </span>
+    </ng-template>
+  </span>
+</mat-toolbar>

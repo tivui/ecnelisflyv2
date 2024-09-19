@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../../../../core/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +12,11 @@ export class LoginComponent {
 
   loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private router: Router
+  ) {
     // Initialize form with default values and validation
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -24,10 +30,20 @@ export class LoginComponent {
 
   onSubmit(): void {
     if (this.loginForm.valid) {
-      // Handle login logic
-      console.log('Form Submitted', this.loginForm.value);
+      const { email, password } = this.loginForm.value;
+      this.authService.signInWithPassword(email, password).then(response => {
+        if (response.error) {
+          // Gérer les erreurs d'authentification
+          console.error('Login error', response.error.message);
+        } else {
+          console.log('Login successful', response.data.user);
+          // Redirige vers une autre page, par exemple la page d'accueil
+          this.router.navigate(['/home']);
+        }
+      }).catch(error => {
+        console.error('Unexpected error', error);
+      });
     } else {
-      // Handle form errors
       console.log('Form Errors', this.loginForm.errors);
     }
   }
