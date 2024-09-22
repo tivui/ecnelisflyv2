@@ -6,7 +6,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
-
+import { NgxCountriesDropdownModule } from 'ngx-countries-dropdown';
+import { MatSelectModule } from '@angular/material/select';
 @NgModule({
   declarations: [],
   imports: [
@@ -16,7 +17,9 @@ import { MatMenuModule } from '@angular/material/menu';
     MatInputModule,
     MatToolbarModule,
     MatIconModule,
-    MatMenuModule
+    MatMenuModule,
+    NgxCountriesDropdownModule,
+    MatSelectModule
   ],
   exports: [
     MatButtonModule,
@@ -24,7 +27,9 @@ import { MatMenuModule } from '@angular/material/menu';
     MatInputModule,
     MatToolbarModule,
     MatIconModule,
-    MatMenuModule
+    MatMenuModule,
+    NgxCountriesDropdownModule,
+    MatSelectModule
   ]
 })
 export class SharedModule { }

@@ -11,6 +11,20 @@
       </mat-error>
     </mat-form-field>
 
+    <mat-form-field>
+      <mat-select placeholder="Sélectionner un pays" [(value)]="selectedCountry">
+        <mat-select-trigger>
+          <img [src]="'assets/img/flags/' + selectedCountry + '.png'" alt="{{ getCountryName(selectedCountry) }}"
+            class="country-flag" />
+          <span>{{ getCountryName(selectedCountry) }}</span>
+        </mat-select-trigger>
+        <mat-option *ngFor="let country of countries" [value]="country.code">
+          <img [src]="'assets/img/flags/' + country.code + '.png'" alt="{{country.name}}" class="country-flag" />
+          <span class="custom-option">{{ country.name }}</span>
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
     <mat-form-field appearance="fill">
       <mat-label>Password</mat-label>
       <input matInput formControlName="password" type="password" placeholder="Enter your password" />
