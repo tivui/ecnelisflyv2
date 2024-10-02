@@ -20,5 +20,8 @@
     </mat-form-field>
 
     <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">Login</button>
+
+    <button mat-raised-button color="primary" type="button" (click)="handleAuth()">Login
+      with Github</button>
   </form>
 </div>

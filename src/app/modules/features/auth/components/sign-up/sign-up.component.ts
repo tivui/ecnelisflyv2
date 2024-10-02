@@ -20,6 +20,7 @@ export class SignUpComponent {
     this.signupForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       country: ['', Validators.required],
+      username: ['', [Validators.required, Validators.minLength(3)]],
       password: ['', [Validators.required, Validators.minLength(6)]],
       confirmPassword: ['', [Validators.required]]
     }, {
@@ -44,7 +45,9 @@ export class SignUpComponent {
     if (this.signupForm.valid) {
       console.log('Form Submitted', this.signupForm.value);
       const response = await this.authService.signup(
+        this.signupForm.value.usernmame,
         this.signupForm.value.email,
+        this.signupForm.value.country,
         this.signupForm.value.password
       );
       console.log("response", response);
@@ -65,10 +68,8 @@ export class SignUpComponent {
     hideCode: true
   };
 
-  onCountryChange(country: any): void {
-    this.signupForm.get('country')?.setValue(country.code);
-    this.signupForm.get('country')?.markAsTouched();
-    console.log("signupForm", this.signupForm)
+  onCountryChange(event: any) {
+    this.selectedCountry = event.value;
   }
 
   getCountryName(value: string): string {

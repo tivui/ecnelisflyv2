@@ -48,4 +48,10 @@ export class LoginComponent {
     }
   }
 
+  async handleAuth() {
+    const response = await this.authService.signInWithGithub();
+
+    console.log(response);
+  }
+
 }

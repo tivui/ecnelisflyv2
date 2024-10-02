@@ -2,6 +2,17 @@
 <div class="signup-container">
   <h2>Sign Up</h2>
   <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="signup-form">
+
+    <mat-form-field appearance="fill">
+      <mat-label>Username</mat-label>
+      <input matInput formControlName="username" placeholder="Enter your username" />
+      <mat-error *ngIf="signupForm.get('username')?.touched && signupForm.get('username')?.invalid">
+        <div *ngIf="signupForm.get('username')?.errors?.['required']">Username is required.</div>
+        <div *ngIf="signupForm.get('username')?.errors?.['minlength']">Username must be at least 3 characters long.
+        </div>
+      </mat-error>
+    </mat-form-field>
+
     <mat-form-field appearance="fill">
       <mat-label>Email</mat-label>
       <input matInput formControlName="email" placeholder="Enter your email" />
@@ -12,17 +23,21 @@
     </mat-form-field>
 
     <mat-form-field>
-      <mat-select placeholder="Sélectionner un pays" [(value)]="selectedCountry">
+      <mat-select placeholder="Sélectionner un pays" formControlName="country"
+        (selectionChange)="onCountryChange($event)">
         <mat-select-trigger>
           <img [src]="'assets/img/flags/' + selectedCountry + '.png'" alt="{{ getCountryName(selectedCountry) }}"
-            class="country-flag" />
-          <span>{{ getCountryName(selectedCountry) }}</span>
+            class="country-flag" *ngIf="selectedCountry" />
+          <span class="custom-option">{{ getCountryName(selectedCountry) || 'Sélectionner un pays' }}</span>
         </mat-select-trigger>
         <mat-option *ngFor="let country of countries" [value]="country.code">
-          <img [src]="'assets/img/flags/' + country.code + '.png'" alt="{{country.name}}" class="country-flag" />
+          <img [src]="'assets/img/flags/' + country.code + '.png'" alt="{{ country.name }}" class="country-flag" />
           <span class="custom-option">{{ country.name }}</span>
         </mat-option>
       </mat-select>
+      <mat-error *ngIf="signupForm.get('country')?.touched && signupForm.get('country')?.invalid">
+        <div *ngIf="signupForm.get('country')?.errors?.['required']">Country is required.</div>
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
