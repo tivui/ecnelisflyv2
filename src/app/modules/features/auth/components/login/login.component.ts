@@ -48,10 +48,28 @@ export class LoginComponent {
     }
   }
 
-  async handleAuth() {
+  async handleAuthWithGithub() {
     const response = await this.authService.signInWithGithub();
+    console.log("response", JSON.stringify(response, null, 2));
 
-    console.log(response);
+    // Redirige l'utilisateur vers l'URL OAuth de GitHub
+    if (response.data.url) {
+      window.location.href = response.data.url;
+    } else {
+      console.error("Erreur lors de la tentative de connexion avec GitHub:", response.error);
+    }
+  }
+
+  async handleAuthWithGoogle() {
+    const response = await this.authService.signInWithGoogle();
+    console.log("response", JSON.stringify(response, null, 2));
+
+    // Redirige l'utilisateur vers l'URL OAuth de GitHub
+    if (response.data.url) {
+      window.location.href = response.data.url;
+    } else {
+      console.error("Erreur lors de la tentative de connexion avec GitHub:", response.error);
+    }
   }
 
 }

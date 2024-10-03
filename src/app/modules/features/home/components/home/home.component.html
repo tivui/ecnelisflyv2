@@ -1,3 +1,16 @@
-<p>home
-  works!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-</p>
+<mat-grid-list cols="1" rowHeight="50vh" class="audio-container">
+  <mat-grid-tile>
+    <div class="content">
+
+      <h3>Lecteur Audio</h3>
+
+      <ngx-audio-player *ngIf="audioUrl" [autoPlay]="false" muted="muted" [playlist]="mssapPlaylist"
+        [disablePositionSlider]="mssapDisablePositionSlider" [displayRepeatControls]="mssapDisplayRepeatControls"
+        [displayVolumeControls]="mssapDisplayVolumeControls" [displayVolumeSlider]="mssapDisplayVolumeSlider"
+        [displayTitle]="mssapDisplayTitle" (trackEnded)="onEnded($event)">
+
+      </ngx-audio-player>
+
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>

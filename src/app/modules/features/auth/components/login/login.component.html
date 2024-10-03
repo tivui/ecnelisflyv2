@@ -19,9 +19,13 @@
       </mat-error>
     </mat-form-field>
 
-    <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">Login</button>
-
-    <button mat-raised-button color="primary" type="button" (click)="handleAuth()">Login
+    <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">Login with
+      email/password</button>
+    <hr>
+    <button mat-raised-button color="primary" type="button" (click)="handleAuthWithGithub()">Login
       with Github</button>
+    <button mat-raised-button color="primary" type="button" (click)="handleAuthWithGoogle()">Login
+      with Google</button>
+
   </form>
 </div>
