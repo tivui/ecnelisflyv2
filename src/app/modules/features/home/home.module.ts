@@ -4,8 +4,7 @@ import { HomeComponent } from './components/home/home.component';
 import { HomeRoutingModule } from './home-routing.module';
 import { StorageService } from '../../core/services/storage.service';
 import { SharedModule } from '../../shared/shared.module';
-import { NgxAudioPlayerModule } from 'ngx-audio-player';
-
+import { NgxAudioPlayerModule } from '@le2xx/ngx-audio-player';
 
 @NgModule({
   declarations: [

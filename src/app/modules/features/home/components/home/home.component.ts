@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Track } from 'ngx-audio-player';
 import { StorageService } from '../../../../core/services/storage.service';
+import { Track } from '@le2xx/ngx-audio-player';
 
 @Component({
   selector: 'app-home',
