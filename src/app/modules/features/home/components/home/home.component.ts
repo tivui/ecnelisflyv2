@@ -35,7 +35,7 @@ export class HomeComponent implements OnInit {
 
   async loadAudioFile() {
     const path = 'fireworks.wav'; // Chemin vers le fichier
-    this.audioUrl = await this.storageService.getAudioFileUrl(path);
+    this.audioUrl = await this.storageService.getPresignedUrl(path);
     if (this.audioUrl) {
       this.mssapPlaylist[0].link = this.audioUrl; // Assigne l'URL à la playlist
       console.log("this.audioUrl", this.audioUrl); // Vérifie l'URL générée

@@ -28,7 +28,7 @@ export class StorageService {
 
     const { data, error } = await this.supabaseClient
       .storage
-      .from('sounds') // Assure-toi que c'est le bon nom de bucket
+      .from('sounds2') // Assure-toi que c'est le bon nom de bucket
       .createSignedUrl(path, 60 * 5); // 60 * 5 = 5 minutes
 
     if (error) {
@@ -37,36 +37,6 @@ export class StorageService {
     }
 
     return data?.signedUrl || null;
-  }
-
-  // Méthode pour vérifier si le fichier existe
-  async fileExists(path: string): Promise<boolean> {
-    const { data, error } = await this.supabaseClient
-      .storage
-      .from('sounds2')
-      .list(path);
-
-    // Vérifie si une erreur s'est produite ou si le tableau est vide
-    if (error) {
-      console.error('Erreur lors de la vérification du fichier:', error.message);
-      return false;
-    }
-
-    return data.length > 0; // Si le tableau n'est pas vide, le fichier existe
-  }
-
-  async listFiles(): Promise<void> {
-    const { data, error } = await this.supabaseClient
-      .storage
-      .from('sounds2') // Remplace par le nom de ton bucket
-      .list('');
-
-    if (error) {
-      console.error('Erreur lors de la liste des fichiers:', error.message);
-      return;
-    }
-
-    console.log('Fichiers dans le bucket:', data);
   }
 
 }
