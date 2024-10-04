@@ -1,0 +1,22 @@
+.audio-container {
+  .content {
+    h3 {
+      margin-bottom: 20px;
+    }
+
+    .player-controls-wrapper {
+      display: flex; /* Utilise flexbox pour aligner les éléments */
+      align-items: center; /* Centre verticalement */
+      justify-content: space-between; /* Espacement entre le lecteur audio et le bouton */
+
+      ngx-audio-player {
+        flex-grow: 1; /* Le lecteur audio prend tout l'espace disponible */
+        margin-right: 10px; /* Espacement à droite pour séparer le bouton */
+      }
+
+      .download-button {
+        /* Styles supplémentaires pour le bouton si nécessaire */
+      }
+    }
+  }
+}

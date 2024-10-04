@@ -9,7 +9,7 @@ import { Track } from '@le2xx/ngx-audio-player';
 })
 export class HomeComponent implements OnInit {
   // Configuration du lecteur audio
-  mssapDisplayTitle = true;
+  mssapDisplayTitle = false;
   mssapDisablePositionSlider = true;
   mssapDisplayRepeatControls = true;
   mssapDisplayVolumeControls = true;
