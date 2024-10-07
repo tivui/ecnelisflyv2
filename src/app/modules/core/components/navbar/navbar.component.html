@@ -3,6 +3,11 @@
 
   <span class="spacer"></span>
 
+  <!-- Switch pour le mode light/dark -->
+  <mat-slide-toggle (change)="toggleTheme($event)" [checked]="isDarkMode">
+    <span>Dark Mode</span>
+  </mat-slide-toggle>
+
   <span class="auth-buttons">
     <ng-container *ngIf="!isLoggedIn; else loggedInTemplate">
       <button mat-button [matMenuTriggerFor]="authMenu" color="accent">

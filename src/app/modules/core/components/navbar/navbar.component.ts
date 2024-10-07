@@ -1,6 +1,7 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Renderer2 } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Subscription } from 'rxjs';
+import { ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,18 +9,27 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./navbar.component.scss'],  // Assurez-vous que c'est 'styleUrls' au lieu de 'styleUrl'
 })
 export class NavbarComponent implements OnInit, OnDestroy {
-  isLoggedIn: boolean = false;  // Variable locale pour suivre l'état de connexion
+  public isLoggedIn: boolean = false;  // Variable locale pour suivre l'état de connexion
   private userSubscription: Subscription | undefined;
 
-  constructor(private authService: AuthService) { }
+  // Themes
+  public isDarkMode: boolean = false;
+
+  constructor(private authService: AuthService, private themeService: ThemeService) { }
 
   ngOnInit() {
+    // Récupérer la préférence de thème sauvegardée au démarrage
+    this.isDarkMode = this.themeService.getIsDarkMode();
+
     // S'abonner aux changements d'état de l'utilisateur
     this.userSubscription = this.authService.getCurrentUser().subscribe(user => {
       this.isLoggedIn = !!user;  // Met à jour isLoggedIn en fonction de la présence d'un utilisateur
       console.log('User state in Navbar:', user);
       console.log("this.isLoggedIn", this.isLoggedIn)
     });
+
+    // Charger le thème initial à partir du localStorage
+    this.themeService.loadTheme();
   }
 
   ngOnDestroy() {
@@ -37,4 +47,11 @@ export class NavbarComponent implements OnInit, OnDestroy {
       console.error('Erreur de déconnexion', error);
     });
   }
+
+  // Méthode déclenchée lors du changement du switch
+  toggleTheme(event: any): void {
+    this.isDarkMode = event.checked;
+    this.themeService.toggleTheme(this.isDarkMode);
+  }
+
 }
