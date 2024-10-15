@@ -1,0 +1,17 @@
+.spacer {
+  flex: 1 1 auto; // Pour pousser les éléments à droite
+}
+
+.auth-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.logout {
+  display: flex;
+  align-items: center;
+
+  .bell-icon {
+    margin-right: 1rem;
+  }
+}
