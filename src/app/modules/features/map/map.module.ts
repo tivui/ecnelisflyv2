@@ -4,6 +4,7 @@ import { MaptestComponent } from './components/maptest/maptest.component';
 import { MapRoutingModule } from './map-routing.module';
 import { SharedModule } from '../../shared/shared.module';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,9 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
     MapRoutingModule,
     SharedModule,
     CommonModule,
-    LeafletModule
+    LeafletModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class MapModule { }
