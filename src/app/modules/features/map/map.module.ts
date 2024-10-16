@@ -3,8 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MaptestComponent } from './components/maptest/maptest.component';
 import { MapRoutingModule } from './map-routing.module';
 import { SharedModule } from '../../shared/shared.module';
-
-
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
 @NgModule({
   declarations: [
@@ -13,7 +12,8 @@ import { SharedModule } from '../../shared/shared.module';
   imports: [
     MapRoutingModule,
     SharedModule,
-    CommonModule
+    CommonModule,
+    LeafletModule
   ]
 })
 export class MapModule { }
