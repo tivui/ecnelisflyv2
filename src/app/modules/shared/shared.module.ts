@@ -12,6 +12,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatCardModule } from '@angular/material/card';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
 @NgModule({
   declarations: [],
   imports: [
@@ -27,7 +29,9 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     MatGridListModule,
     MatSliderModule,
     MatCardModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatSidenavModule,
+    MatListModule
   ],
   exports: [
     MatButtonModule,
@@ -41,7 +45,9 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     MatGridListModule,
     MatSliderModule,
     MatCardModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatSidenavModule,
+    MatListModule
   ]
 })
 export class SharedModule { }
