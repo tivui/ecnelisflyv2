@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppComponent } from './components/app/app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -15,6 +15,9 @@ import { SharedModule } from '../shared/shared.module';
     CommonModule,
     CoreRoutingModule,
     SharedModule
-  ]
+  ],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'fr-FR' }  // Valeur par défaut
+  ],
 })
 export class CoreModule { }

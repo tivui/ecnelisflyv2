@@ -1,8 +1,8 @@
 <mat-grid-list cols="1" rowHeight="50vh" class="audio-container">
   <mat-grid-tile>
     <div class="content">
-      <h3>Lecteur Audio</h3>
-
+      <h3 i18n>Lecteur Audio</h3>
+      <p i18n>Test d'accès storage fichiers audio avec url présignée</p>
       <div class="player-controls-wrapper">
         <ngx-audio-player *ngIf="audioUrl" [autoPlay]="false" muted="muted" [playlist]="mssapPlaylist"
           [disablePositionSlider]="mssapDisablePositionSlider" [displayRepeatControls]="mssapDisplayRepeatControls"
@@ -13,7 +13,7 @@
         <!-- Bouton de téléchargement intégré dans la même carte -->
         <a *ngIf="audioUrl" [href]="audioUrl" download>
           <button mat-icon-button color="primary" class="download-button">
-            <mat-icon>download</mat-icon>
+            <mat-icon>Télécharger</mat-icon>
           </button>
         </a>
       </div>
