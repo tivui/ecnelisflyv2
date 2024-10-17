@@ -1,0 +1,35 @@
+<div>
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav mode="side">
+      <mat-toolbar>
+        <span>Recherche de projets</span>
+      </mat-toolbar>
+
+      <!-- Barre de recherche -->
+      <mat-form-field appearance="fill">
+        <mat-label>Rechercher un projet</mat-label>
+        <input matInput [formControl]="searchControl">
+      </mat-form-field>
+
+      <mat-nav-list>
+        <mat-list-item *ngFor="let project of filteredProjects" (click)="selectProject(project)">
+          {{ project.name }}
+        </mat-list-item>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <div style="height: 100vh;">
+        <mat-toolbar color="primary">
+          <button mat-icon-button aria-label="Menu" (click)="sidenav.toggle()">
+            <mat-icon>menu</mat-icon>
+          </button>
+          <span>Carte des projets</span>
+        </mat-toolbar>
+
+        <!-- Conteneur pour la carte OpenLayers -->
+        <div id="map" style="height: 100%; width: 100%;"></div>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
