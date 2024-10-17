@@ -14,8 +14,12 @@ import { MatCardModule } from '@angular/material/card';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { DateFormatterComponent } from './components/date-formatter/date-formatter.component';
+import { LayoutModule } from '@angular/cdk/layout';
 @NgModule({
-  declarations: [],
+  declarations: [
+    DateFormatterComponent
+  ],
   imports: [
     CommonModule,
     MatButtonModule,
@@ -31,7 +35,8 @@ import { MatListModule } from '@angular/material/list';
     MatCardModule,
     MatSlideToggleModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    LayoutModule
   ],
   exports: [
     MatButtonModule,
@@ -47,7 +52,9 @@ import { MatListModule } from '@angular/material/list';
     MatCardModule,
     MatSlideToggleModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    DateFormatterComponent,
+    LayoutModule
   ]
 })
 export class SharedModule { }

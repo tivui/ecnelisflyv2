@@ -1,7 +1,8 @@
-<mat-grid-list cols="1" rowHeight="50vh" class="audio-container">
+<app-date-formatter></app-date-formatter>
+<mat-grid-list cols="1" rowHeight="20vh" class="audio-container">
   <mat-grid-tile>
-    <div class="content">
-      <h3 i18n>Lecteur Audio</h3>
+    <div class="mat-app-background">
+      <h3 i18n><span>Lecteur Audio</span></h3>
       <p i18n>Test d'accès storage fichiers audio avec url présignée</p>
       <div class="player-controls-wrapper">
         <ngx-audio-player *ngIf="audioUrl" [autoPlay]="false" muted="muted" [playlist]="mssapPlaylist"
@@ -19,4 +20,14 @@
       </div>
     </div>
   </mat-grid-tile>
+</mat-grid-list>
+
+
+<mat-grid-list hide-xs [cols]="cols" rowHeight="4:1" gutterSize="1" class="mat-app-background ">
+  <mat-grid-tile class="test-tile">1</mat-grid-tile>
+  <mat-grid-tile class="test-tile">2</mat-grid-tile>
+  <mat-grid-tile class="test-tile">3</mat-grid-tile>
+  <mat-grid-tile class="test-tile">4</mat-grid-tile>
+  <mat-grid-tile class="test-tile">5</mat-grid-tile>
+  <mat-grid-tile class="test-tile">6</mat-grid-tile>
 </mat-grid-list>
