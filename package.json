@@ -27,6 +27,7 @@
     "ngx-countries-dropdown": "^2.1.2",
     "ngx-leaflet": "^0.0.16",
     "npm": "^10.8.2",
+    "ol": "^10.2.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.10"

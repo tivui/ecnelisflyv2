@@ -55,7 +55,7 @@ export class MaptestComponent implements OnInit {
 
   loadProjects(bounds: LatLngBounds) {
     // Obtenez les projets dans les bounds
-    const projectsInBounds = this.projectService.getProjectsInBounds(bounds);
+    const projectsInBounds = this.projectService.getProjectsLeafletInBounds(bounds);
 
     // Assignez les projets récupérés à this.projects
     this.projects = projectsInBounds;

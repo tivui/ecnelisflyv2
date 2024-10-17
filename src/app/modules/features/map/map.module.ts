@@ -5,10 +5,12 @@ import { MapRoutingModule } from './map-routing.module';
 import { SharedModule } from '../../shared/shared.module';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Maptest2Component } from './components/maptest2/maptest2.component';
 
 @NgModule({
   declarations: [
-    MaptestComponent
+    MaptestComponent,
+    Maptest2Component
   ],
   imports: [
     MapRoutingModule,
