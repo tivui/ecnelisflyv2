@@ -69,7 +69,9 @@ export class Maptest2Component implements OnInit {
       ],
       view: new View({
         center: fromLonLat([2.29, 48.8566]), // Paris
-        zoom: 14
+        zoom: 14,
+        minZoom: 1,
+        maxZoom: 18,
       }),
     });
 
