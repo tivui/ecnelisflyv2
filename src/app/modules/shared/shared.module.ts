@@ -14,11 +14,11 @@ import { MatCardModule } from '@angular/material/card';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
-import { DateFormatterComponent } from './components/date-formatter/date-formatter.component';
 import { LayoutModule } from '@angular/cdk/layout';
+import { IntlFormatterComponent } from './components/intl-formatter/intl-formatter.component';
 @NgModule({
   declarations: [
-    DateFormatterComponent
+    IntlFormatterComponent
   ],
   imports: [
     CommonModule,
@@ -53,7 +53,7 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatSlideToggleModule,
     MatSidenavModule,
     MatListModule,
-    DateFormatterComponent,
+    IntlFormatterComponent,
     LayoutModule
   ]
 })
