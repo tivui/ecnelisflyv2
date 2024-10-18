@@ -1,0 +1,9 @@
+<mat-list class="mat-typography app-frame mat-app-background">
+  <h5 mat-subheader>Date Formatée</h5>
+  <p>Langue actuelle : {{ currentLang }}</p>
+  <p>Date formatée : {{ formattedDate }}</p>
+  <p>Devise formatée : {{ formattedCurrency }}</p>
+  <p>{{ translate('greeting', currentLang) }}</p>
+  <p>{{ translate('farewell', currentLang) }}</p>
+  <button mat-button (click)="switchLanguage()">Changer la langue</button>
+</mat-list>

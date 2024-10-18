@@ -4,6 +4,7 @@ import { AppComponent } from './components/app/app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CoreRoutingModule } from './core-routing.module';
 import { SharedModule } from '../shared/shared.module';
+import { provideClientHydration, withI18nSupport } from '@angular/platform-browser';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { SharedModule } from '../shared/shared.module';
     SharedModule
   ],
   providers: [
-    { provide: LOCALE_ID, useValue: 'fr-FR' }  // Valeur par défaut
+    // { provide: LOCALE_ID, useValue: 'fr-FR' }  // Valeur par défaut
+    provideClientHydration(withI18nSupport())
   ],
 })
 export class CoreModule { }

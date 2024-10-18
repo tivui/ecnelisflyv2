@@ -14,8 +14,12 @@ import { MatCardModule } from '@angular/material/card';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { LayoutModule } from '@angular/cdk/layout';
+import { IntlFormatterComponent } from './components/intl-formatter/intl-formatter.component';
 @NgModule({
-  declarations: [],
+  declarations: [
+    IntlFormatterComponent
+  ],
   imports: [
     CommonModule,
     MatButtonModule,
@@ -31,7 +35,8 @@ import { MatListModule } from '@angular/material/list';
     MatCardModule,
     MatSlideToggleModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    LayoutModule
   ],
   exports: [
     MatButtonModule,
@@ -47,7 +52,9 @@ import { MatListModule } from '@angular/material/list';
     MatCardModule,
     MatSlideToggleModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    IntlFormatterComponent,
+    LayoutModule
   ]
 })
 export class SharedModule { }
