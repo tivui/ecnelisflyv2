@@ -16,6 +16,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { LayoutModule } from '@angular/cdk/layout';
 import { IntlFormatterComponent } from './components/intl-formatter/intl-formatter.component';
+import { TranslateModule } from '@ngx-translate/core';
 @NgModule({
   declarations: [
     IntlFormatterComponent
@@ -36,7 +37,8 @@ import { IntlFormatterComponent } from './components/intl-formatter/intl-formatt
     MatSlideToggleModule,
     MatSidenavModule,
     MatListModule,
-    LayoutModule
+    LayoutModule,
+    TranslateModule
   ],
   exports: [
     MatButtonModule,
@@ -54,7 +56,8 @@ import { IntlFormatterComponent } from './components/intl-formatter/intl-formatt
     MatSidenavModule,
     MatListModule,
     IntlFormatterComponent,
-    LayoutModule
+    LayoutModule,
+    TranslateModule
   ]
 })
 export class SharedModule { }

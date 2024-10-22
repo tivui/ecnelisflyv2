@@ -1,21 +1,20 @@
 import { Injectable } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class TranslationService {
-  private translations: { [key: string]: { [lang: string]: string } } = {
-    greeting: {
-      'fr-FR': 'Bonjour',
-      'en-US': 'Hello',
-    },
-    farewell: {
-      'fr-FR': 'Au revoir',
-      'en-US': 'Goodbye',
-    },
-  };
+  constructor(private translate: TranslateService) {
+    this.translate.setDefaultLang('fr'); // Set default language
+    this.translate.use('fr'); // Set initial language
+  }
 
-  translate(key: string, lang: string): string {
-    return this.translations[key][lang] || key; // Retourner la traduction ou la clé si pas trouvée
+  switchLanguage(lang: string) {
+    this.translate.use(lang);
+  }
+
+  translateKey(key: string, params?: Object) {
+    return this.translate.instant(key, params); // Synchronous translation
   }
 }

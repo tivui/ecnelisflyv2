@@ -1,0 +1,7 @@
+{
+  "HOME": {
+    "HELLO": "Bonjour {{value}}, bienvenue dans notre application",
+    "DESCRIPTION": "Cette application prend en charge plusieurs langues grâce à ngx-translate.",
+    "BUTTON_SWITCH": "Passer à l'anglais"
+  }
+}
