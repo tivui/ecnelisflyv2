@@ -6,11 +6,13 @@ import { SharedModule } from '../../shared/shared.module';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Maptest2Component } from './components/maptest2/maptest2.component';
+import { MaptestlazyloadingComponent } from './components/maptestlazyloading/maptestlazyloading.component';
 
 @NgModule({
   declarations: [
     MaptestComponent,
-    Maptest2Component
+    Maptest2Component,
+    MaptestlazyloadingComponent
   ],
   imports: [
     MapRoutingModule,
