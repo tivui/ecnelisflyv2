@@ -1,4 +1,4 @@
-import { Component, effect, OnInit, signal } from '@angular/core';
+import { Component, effect, EffectRef, OnInit, signal } from '@angular/core';
 import { StorageService } from '../../../../core/services/storage.service';
 import { Track } from '@le2xx/ngx-audio-player';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
@@ -30,6 +30,7 @@ export class HomeComponent implements OnInit {
   public loading = signal<boolean>(false);
   public volume = signal<number>(50);
   public volumeLabelStyle: { [key: string]: string } = {};
+  public volumeEffect: EffectRef;
 
   // Layout
   cols = '3';
@@ -57,25 +58,35 @@ export class HomeComponent implements OnInit {
         }
       }
     });
-    // Effet pour gérer le changement de volume
-    effect(() => {
-      const currentVolume = this.volume(); // Lire le volume
-      console.log("Volume actuel:", currentVolume); // Afficher le volume dans la console
 
-      let newStyle: { [key: string]: string } = {}; // Utilisez un objet temporaire pour le style
+    // Effet pour gérer le changement de volume
+    this.volumeEffect = effect((onCleanup) => {
+      const currentVolume = this.volume();
+
+      let newStyle: { [key: string]: string } = {};
 
       if (currentVolume === 0) {
-        newStyle = { color: 'gray', opacity: '0.5' }; // Gris avec opacité
+        newStyle = { color: 'gray', opacity: '0.5' };
       } else if (currentVolume > 80) {
-        newStyle = { color: 'red' }; // Rouge
+        newStyle = { color: 'red' };
       } else {
-        newStyle = { color: 'green' }; // Vert
+        newStyle = { color: 'green' };
       }
 
-      this.volumeLabelStyle = newStyle; // Mettez à jour le style
-      console.log("Nouveau style:", newStyle); // Vérifiez le nouveau style dans la console
-    });
+      this.volumeLabelStyle = newStyle;
 
+      // Minuterie pour afficher le volume après un délai
+      const timer = setTimeout(() => {
+        console.log(`Volume mis à jour après délai: ${currentVolume}`);
+      }, 1000);
+
+      // Enregistrement de la fonction de nettoyage
+      onCleanup(() => {
+        clearTimeout(timer); // Annuler la minuterie si l'effet est réexécuté ou si le composant est détruit
+        console.log('Minuterie annulée');
+      });
+
+    });
   }
 
   ngOnInit(): void {
@@ -101,7 +112,7 @@ export class HomeComponent implements OnInit {
 
   onVolumeChange(event: Event) {
     const target = event.target as HTMLInputElement;
-    this.volume.set(Number(target.value));
+    this.volume.set(Number(target.value)); // Mettre à jour le volume
   }
 
   // Callback Events

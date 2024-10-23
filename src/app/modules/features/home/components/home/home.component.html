@@ -15,11 +15,14 @@
       </div>
 
       <div class="audio-download-container" @if(audioUrl())>
-        <a [href]="audioUrl()" download (click)="onDownload()">
+        <a [href]="audioUrl()" download (click)="onDownload(); volumeEffect.destroy();">
           <button mat-icon-button class="download-button">
             <mat-icon>download</mat-icon>
           </button>
         </a>
+        <button mat-icon-button (click)="volumeEffect.destroy()" class="download-button">
+          <mat-icon>power_settings_new</mat-icon>
+        </button>
         <div>
           <label for="volume-control" [ngStyle]="volumeLabelStyle">
             Volume: {{ volume() }}%
