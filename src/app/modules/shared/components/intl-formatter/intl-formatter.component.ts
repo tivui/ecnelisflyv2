@@ -41,7 +41,8 @@ export class IntlFormatterComponent {
 
   switchLanguage() {
     this.currentLang = this.currentLang === 'fr-FR' ? 'en-US' : 'fr-FR'; // Toggle between French and English
-    this.translationService.switchLanguage(this.currentLang === 'fr-FR' ? 'fr' : 'en');
+    this.translationService.switchLanguage(this.currentLang)
+    // Api Intl
     this.formatDate(this.date);
     this.formatCurrency(this.amount);
   }

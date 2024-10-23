@@ -13,10 +13,6 @@
         flex-grow: 1; /* Le lecteur audio prend tout l'espace disponible */
         margin-right: 10px; /* Espacement à droite pour séparer le bouton */
       }
-
-      .download-button {
-        /* Styles supplémentaires pour le bouton si nécessaire */
-      }
     }
   }
 }
@@ -27,4 +23,8 @@
 
 .test-tile-pink {
   background-color: palevioletred;
+}
+
+.download-button {
+  margin-bottom: -100px;
 }

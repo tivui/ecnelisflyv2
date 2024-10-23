@@ -7,15 +7,15 @@
         <target>Audio Player</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/features/home/components/home/home.component.html</context>
-          <context context-type="linenumber">4,5</context>
+          <context context-type="linenumber">5</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2966240407642282676" datatype="html">
-        <source>Test d&apos;accès storage fichiers audio avec url présignée</source>
-        <target>Audio files access from storage with presigned urls</target>
+        <source>Test d&apos;accès storage supabase fichiers audio avec url présignée</source>
+        <target>Audio files access test from supabase storage with presigned urls</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/features/home/components/home/home.component.html</context>
-          <context context-type="linenumber">5,6</context>
+          <context context-type="linenumber">6,7</context>
         </context-group>
       </trans-unit>
     </body>

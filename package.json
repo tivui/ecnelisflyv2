@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "node -v && ng serve",
+    "extract-i18n": "ng extract-i18n --output-path=src/assets/locale",
+    "start": "node -v && npm run extract-i18n&& ng serve",
+    "start-en": "node -v && npm run extract-i18n && ng serve --configuration=en",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"

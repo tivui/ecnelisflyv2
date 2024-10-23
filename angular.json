@@ -33,7 +33,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "localize": ["en-US"],
+            "localize": ["fr-FR", "en-US"],
             "outputPath": "dist/ecnelisfly",
             "index": "src/index.html",
             "browser": "src/main.ts",
@@ -61,7 +61,7 @@
                 {
                   "type": "initial",
                   "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumError": "2MB"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -83,7 +83,7 @@
               ]
             },
             "en": {
-              "localize": ["en"]
+              "localize": ["en-US"]
             }
           },
           "defaultConfiguration": "production"
