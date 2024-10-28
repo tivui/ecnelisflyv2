@@ -28,6 +28,7 @@
     "@ngx-translate/core": "^15.0.0",
     "@ngx-translate/http-loader": "^8.0.0",
     "@supabase/supabase-js": "^2.45.2",
+    "@types/geojson": "^7946.0.14",
     "leaflet": "^1.9.4",
     "ngx-countries-dropdown": "^2.1.2",
     "ngx-leaflet": "^0.0.16",

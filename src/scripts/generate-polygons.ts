@@ -40,7 +40,7 @@ const data = [];
 const colors = ['red', 'blue', 'green', 'yellow']; // 4 couleurs pour les couches
 const baseSize = 0.2; // Augmenter le facteur de taille pour des polygones plus larges
 
-for (let i = 1; i <= 300; i++) {
+for (let i = 1; i <= 5000; i++) {
   const layerIndex = (i - 1) % 4; // 4 layers
   const layer = `Layer ${layerIndex + 1}`;
   const color = colors[layerIndex]; // Sélection de la couleur correspondant au layer
@@ -64,6 +64,6 @@ for (let i = 1; i <= 300; i++) {
 }
 
 // Écrire les données dans un fichier JSON
-fs.writeFileSync('.././assets/map-data/polygons.json', JSON.stringify(data, null, 2));
+fs.writeFileSync('./src/assets/map-data/polygons.json', JSON.stringify(data, null, 2));
 
 console.log('Polygons data generated and saved.');
