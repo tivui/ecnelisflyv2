@@ -7,12 +7,16 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Maptest2Component } from './components/maptest2/maptest2.component';
 import { MaptestlazyloadingComponent } from './components/maptestlazyloading/maptestlazyloading.component';
+import { MaptestvectorgridComponent } from './components/maptestvectorgrid/maptestvectorgrid.component';
+import { LegendtestComponent } from './components/legendtest/legendtest.component';
 
 @NgModule({
   declarations: [
     MaptestComponent,
     Maptest2Component,
-    MaptestlazyloadingComponent
+    MaptestlazyloadingComponent,
+    MaptestvectorgridComponent,
+    LegendtestComponent
   ],
   imports: [
     MapRoutingModule,
